@@ -1,0 +1,22 @@
+extends ../common/layout 
+
+block css
+  link(rel="stylesheet", href="/css/admin-add.css" , type="text/css")
+
+//- /admin/manage/addp
+block layout-content 
+  h1 Add project
+  form(method="post", action="/admin/manage/addp/submit")
+    div 
+      label(for="name") Name: 
+      input(type="text", id="name", name="name", placeholder="project name")
+    div
+      label(for="language") Language: 
+      input(type="text", id="language", name="language", placeholder="what languages use in the project")
+    div
+      label(for="URL") URL: 
+      input(type="text", id="URL", name="URL", placeholder="project link")
+      
+    .form-buttons
+      button(type="submit") Add project
+      a.btn-cancel(href="/admin/manage") Cancel

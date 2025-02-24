@@ -1,0 +1,18 @@
+extends common/layout
+
+block layout-content 
+  .main-content 
+    .admin-container
+      a.btn-admin(href="/admin/manage") Admin Dashboard
+    h1.page-title  My Portfolio Site
+    h2.section-title Skills:
+    each skill in skills
+      div
+        h3 #{skill.name}  (#{skill.category})
+        p  #{skill.description} 
+    h2.section-title Projects:
+    each project in projects
+      div
+        h3 #{project.name}  (#{project.language})
+        p  
+          a(href=project.URL target="_blank") #{project.URL} 

@@ -1,0 +1,22 @@
+extends ../common/layout 
+
+block css
+    link(rel="stylesheet", href="/css/admin-add.css" , type="text/css")
+
+//- /admin/manage/adds
+block layout-content 
+  h1 Add skill
+  form(method="post", action="/admin/manage/adds/submit")
+    div 
+      label(for="name") Name: 
+      input(type="text", id="name", name="skill", placeholder="skill name")
+    div
+      label(for="category") Category: 
+      input(type="text", id="category", name="category", placeholder="what category the skill belongs to")
+    div
+      label(for="description") Description: 
+      input(type="text", id="description", name="description", placeholder="skill description, e.g. what level you are in")
+    
+    .form-buttons
+      button(type="submit") Add skill
+      a.btn-cancel(href="/admin/manage") Cancel

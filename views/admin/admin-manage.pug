@@ -1,0 +1,43 @@
+extends ../common/layout
+
+
+block css
+  link(rel="stylesheet", href="/css/admin.css" , type="text/css")
+
+block layout-content
+
+  .admin-container
+    a.btn-home(href="/") Homepage
+  h1 Welcome! Administer
+
+  .table-container
+    a(href="/admin/manage/adds") + Add new skill
+    table 
+      thead 
+        tr 
+          th Skill
+          th Operation
+      tbody 
+        each skill in skills
+          tr 
+            td  #{skill.name} (#{skill.category})
+            td
+              form(action="/admin/manage/deletes")
+                input(type="hidden", name="skillId", value=skill._id)
+                button(type="submit") Delete
+
+  .table-container
+    a(href="/admin/manage/addp") + Add new project
+    table 
+      thead 
+        tr 
+          th Project
+          th Operation
+      tbody 
+        each project in projects
+          tr 
+            td  #{project.name} (#{project.language})
+            td
+              form(action="/admin/manage/deletep")
+                input(type="hidden", name="projectId", value=project._id)
+                button(type="submit") Delete
