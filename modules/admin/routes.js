@@ -29,7 +29,6 @@ router.get("/addp", async (request, response) => {
 
 // /admin/manage/adds/submit
 router.post("/adds/submit", async (request, response) => {
-    
     let newSkill = await allData.addSkill(request.body.name, request.body.category,request.body.description);
     console.log(newSkill);
     response.redirect("/admin/manage"); 
@@ -37,12 +36,10 @@ router.post("/adds/submit", async (request, response) => {
 
 // /admin/manage/addp/submit
 router.post("/addp/submit", async (request, response) => {
-    
-    let newProject = await allData.addProject(request.body.name, request.body.language,request.body.URL);
+    let newProject = await allData.addProject(request.body.title, request.body.stack,request.body.URL,request.body.description);
     console.log(newProject);
     response.redirect("/admin/manage"); 
 });
-
 
 
 // /admin/manage/deletes

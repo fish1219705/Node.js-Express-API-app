@@ -36,7 +36,7 @@ block layout-content
       tbody 
         each project in projects
           tr 
-            td  #{project.name} (#{project.language})
+            td  #{project.title} (#{project.description})
             td
               form(action="/admin/manage/deletep")
                 input(type="hidden", name="projectId", value=project._id)

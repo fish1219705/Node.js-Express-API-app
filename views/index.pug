@@ -13,6 +13,7 @@ block layout-content
     h2.section-title Projects:
     each project in projects
       div
-        h3 #{project.name}  (#{project.language})
-        p  
+        h3 #{project.title}  (#{project.stack})
+        p  #{project.description}
+        p 
           a(href=project.URL target="_blank") #{project.URL} 

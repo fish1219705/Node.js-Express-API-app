@@ -6,7 +6,7 @@ const SkillSchema = new mongoose.Schema({
   name: String,
   category: String,
   description: String
-} , { collection: "skills"});
+}, { collection: "skills"});
 
 const Skill = mongoose.model("Skill", SkillSchema);
 
@@ -18,36 +18,36 @@ async function getSkills() {
 async function initializeSkills(){
     const initialSkill = [
     { name:"HTML",
-      category:"Web Development",
+      category:"Front-End",
       description: "The standard markup language used to create web pages"
     },
     {
       name:"CSS",
-      category:"Web Development",
+      category:"Front-End",
       description:"A style sheet language used to describe the presentation of a document written in HTML."
     },
     {
       name:"JavaScript",
-      category:"Programming",
+      category:"Front-End",
       description:"A versatile programming language for creating dynamic and interactive web content."
     },
     {
       name:"ASP.NET",
-      category:"Backend Development",
+      category:"Back-End",
       description:"A framework for building dynamic web applications using .NET."
     },
     {
       name:"SQL",
-      category:"Database",
+      category:"Tools",
       description:"Structured Query Language used for managing and manipulating relational databases."
     },
     {
       name:"Figma",
-      category:"UI/UX Design",
+      category:"Tools",
       description:"A cloud-based design tool for collaborative interface design, prototyping, and UI/UX workflows."
     }
   ];
-    await Skill.insertMany(initialSkill);
+  await Skill.insertMany(initialSkill);
 }
 
 async function addSkill(skillName, skillCategory, skillDescription) {
@@ -70,8 +70,9 @@ async function deleteSkill(id){
   
 
 const ProjectSchema = new mongoose.Schema({
-  name:String,
-  language:String,
+  title:String,
+  stack:String,
+  description:String,
   URL:String
 }, { collection: "projects"})
 
@@ -86,26 +87,24 @@ async function getProjects(){
 async function initializeProjects(){
   const initialProject = [
     {
-      name:"Passion Project",
-      language:"C# asp.net",
+      title:"Passion Project",
+      stack:"C#, asp.net",
+      description:"healthy dessert management system",
       URL:"https://github.com/fish1219705/PassionProject"
     },
-    {
-      name:"CSS Animation",
-      language:"html,css,javascript",
-      URL:"https://fish1219705.github.io/cssProject/"
-    }
+  
   ];
-    await Project.insertMany(initialProject);
+  await Project.insertMany(initialProject);
 }
 
-async function addProject(projectName, projectLanguage, projectURL) {
+async function addProject(projectTitle, projectStack, projectURL, projectDescription) {
   await db.connect();
-  let project = new Project({
-  name: projectName,
-  language: projectLanguage,
-  URL: projectURL,
-  });
+    let project = new Project({
+    title: projectTitle,
+    stack: projectStack,
+    URL: projectURL,
+    description: projectDescription,
+    });
   let result = await project.save();
   console.log(result) ;
   }
@@ -115,7 +114,6 @@ async function deleteProject(id){
   let result = await Project.findByIdAndDelete(id);
   console.log(result);
 }
-
 
 
 module.exports = {

@@ -8,11 +8,14 @@ block layout-content
   h1 Add project
   form(method="post", action="/admin/manage/addp/submit")
     div 
-      label(for="name") Name: 
-      input(type="text", id="name", name="name", placeholder="project name")
+      label(for="title") Title: 
+      input(type="text", id="title", name="title", placeholder="project title")
     div
-      label(for="language") Language: 
-      input(type="text", id="language", name="language", placeholder="what languages use in the project")
+      label(for="description") Description: 
+      input(type="text", id="desctription", name="description", placeholder="a short description of the project")
+    div
+      label(for="stack") Tech Stack: 
+      input(type="text", id="stack", name="stack", placeholder="tech stacks used in the project")
     div
       label(for="URL") URL: 
       input(type="text", id="URL", name="URL", placeholder="project link")
