@@ -1,9 +1,10 @@
+const cors = require("cors");
 const express = require("express");
 const path = require("path");
 const sessions = require("express-session");
 
 const dotenv = require("dotenv");
-const cors = require("cors");
+
 
 dotenv.config();
 
@@ -11,6 +12,8 @@ const { request } = require("https");
 
 const app = express();
 const port = process.env.PORT || "8888";
+
+app.use(cors()); 
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -38,9 +41,6 @@ app.use(
 app.use("/", pageRouter); 
 app.use("/admin", adminRouter);
 
-
-//allow requests from all domains (need it to deploy API)
-app.use(cors());
 
 app.get("/api/skills", getSkills); 
 app.get("/api/projects", getProjects); 
