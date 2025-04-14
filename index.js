@@ -40,9 +40,7 @@ app.use("/admin", adminRouter);
 
 
 //allow requests from all domains (need it to deploy API)
-app.use(cors({
-    origin: '*'
-}));
+app.use(cors());
 
 app.get("/api/skills", getSkills); 
 app.get("/api/projects", getProjects); 
