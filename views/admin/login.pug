@@ -1,0 +1,22 @@
+extends ../common/layout
+
+block css
+  link(rel="stylesheet", href="/css/admin.css" , type="text/css")
+
+block layout-content
+  .login-container
+    h2 Admin Login
+
+    if err
+      p(style="color:red") #{err}
+
+    form(method="POST", action="/admin/login")
+      label(for="u") Username:
+      input(type="text", name="u", required)
+      br
+
+      label(for="pw") Password:
+      input(type="password", name="pw", required)
+      br
+
+      button(type="submit") Login

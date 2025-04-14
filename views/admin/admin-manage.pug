@@ -8,10 +8,12 @@ block layout-content
 
   .admin-container
     a.btn-home(href="/") Homepage
+    a.btn-logout(href="/admin/logout") Logout
+
   h1 Welcome! Administer
 
   .table-container
-    a(href="/admin/manage/adds") + Add new skill
+    a(href="/admin/adds") + Add new skill
     table 
       thead 
         tr 
@@ -22,12 +24,12 @@ block layout-content
           tr 
             td  #{skill.name} (#{skill.category})
             td
-              form(action="/admin/manage/deletes")
+              form(action="/admin/deletes")
                 input(type="hidden", name="skillId", value=skill._id)
                 button(type="submit") Delete
 
   .table-container
-    a(href="/admin/manage/addp") + Add new project
+    a(href="/admin/addp") + Add new project
     table 
       thead 
         tr 
@@ -38,6 +40,6 @@ block layout-content
           tr 
             td  #{project.title} (#{project.description})
             td
-              form(action="/admin/manage/deletep")
+              form(action="/admin/deletep")
                 input(type="hidden", name="projectId", value=project._id)
                 button(type="submit") Delete
